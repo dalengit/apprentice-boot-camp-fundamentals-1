@@ -10,9 +10,10 @@ namespace McrDigital.Bootcamp1.Cards
         {
             var encapsulation = new PlayingCardDeck();
             var deckInOrder = encapsulation.GetCards();
+            // Foreach card in the list returned by the GetCards method, write it to the console. 
             foreach (var card in deckInOrder)
             {
-                Console.WriteLine(card);
+                Console.WriteLine(card.ToString());
             }
         }
     }
