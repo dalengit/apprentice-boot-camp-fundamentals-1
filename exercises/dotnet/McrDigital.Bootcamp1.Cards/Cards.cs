@@ -22,11 +22,11 @@ namespace McrDigital.Bootcamp1.Cards
             var result = new String[52];
             var deck = new PlayingCard[52];
 
-            for (var suit = 0; suit < 4; suit++)
+            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
                 for (var faceValue = 0; faceValue < 13; faceValue++)
                 {
-                    deck[suit * 13 + faceValue] = new PlayingCard(suit, faceValue);
+                    deck[(int)suit * 13 + faceValue] = new PlayingCard(suit, faceValue);
                 }
             }
 
@@ -62,25 +62,7 @@ namespace McrDigital.Bootcamp1.Cards
                     default: throw new ArgumentException($"Something went wrong {card.FaceValue} is not a valid faceValue!");
                 }
 
-                var suitName = string.Empty;
-                switch (card.Suit)
-                {
-                    case 0:
-                        suitName = "clubs";
-                        break;
-                    case 1:
-                        suitName = "diamonds";
-                        break;
-                    case 2:
-                        suitName = "hearts";
-                        break;
-                    case 3:
-                        suitName = "spades";
-                        break;
-                    default: throw new ArgumentException($"Something went wrong {card.Suit} is not a valid suitName!");
-                }
-
-                result[cardNumber] = $"{faceValueName} of {suitName}";
+                result[cardNumber] = $"{faceValueName} of {card.Suit}";
                 cardNumber++;
             }
 
@@ -90,19 +72,25 @@ namespace McrDigital.Bootcamp1.Cards
 
     public class PlayingCard
     {
-        public PlayingCard(int suit, int faceValue)
+        public PlayingCard(Suit suit, int faceValue)
         {
             Suit = suit;
             FaceValue = faceValue;
         }
-        public int Suit { get; set; }
+        public Suit Suit { get; set; }
         public int FaceValue { get; set; }
     }
 
-    public class Suit
+    public enum Suit
     {
-        public string Name { get; set; }
+        clubs,
+        diamonds,
+        hearts,
+        spades
     }
 
-    public class PlayingCardDeck {}
+    public class PlayingCardDeck
+    {
+
+    }
 }
