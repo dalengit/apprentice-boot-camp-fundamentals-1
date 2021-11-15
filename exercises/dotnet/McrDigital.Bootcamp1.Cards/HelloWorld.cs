@@ -7,7 +7,7 @@ namespace McrDigital.Bootcamp1.Cards
     class HelloWorld
     {
 
-        public void HelloWorld()
+        public void SayHelloWorld()
         {
             Console.WriteLine("Hello World!");
         }
