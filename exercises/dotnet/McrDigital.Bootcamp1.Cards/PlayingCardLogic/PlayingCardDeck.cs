@@ -9,11 +9,11 @@ namespace McrDigital.Bootcamp1.Cards
         {
             Cards = GetCards();
         }
-        public List<ICard> Cards { get; set; }
+        public List<Card> Cards { get; set; }
 
-        public List<ICard> GetCards()
+        public List<Card> GetCards()
         {
-            var listOfCards = new List<ICard>();
+            var listOfCards = new List<Card>();
 
             foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
@@ -32,7 +32,7 @@ namespace McrDigital.Bootcamp1.Cards
 
             return listOfCards;
         }
-        public ICard Deal()
+        public Card Deal()
         {
             var card = Cards[0];
             Cards.RemoveAt(0);

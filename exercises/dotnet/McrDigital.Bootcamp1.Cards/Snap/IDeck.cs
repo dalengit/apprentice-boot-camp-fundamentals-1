@@ -6,8 +6,8 @@ namespace McrDigital.Bootcamp1.Cards
 {
     public interface IDeck
     {
-        ICard Deal();
-        List<ICard> GetCards();
+        Card Deal();
+        List<Card> GetCards();
         void Shuffle();
     }
 }

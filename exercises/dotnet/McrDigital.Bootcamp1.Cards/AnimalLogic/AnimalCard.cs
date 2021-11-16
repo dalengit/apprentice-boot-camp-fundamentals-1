@@ -1,28 +1,14 @@
 namespace McrDigital.Bootcamp1.Cards
 {
-    public class AnimalCard : ICard
+    public class AnimalCard : Card
     {
-        private readonly Animal _animal;
-
         public AnimalCard(Animal animal)
         {
-            _animal = animal;
+            FaceValue = animal.ToString();
         }
-
-        public Animal Animal
-        {
-            get => _animal;
-        }
-
-        public bool Snap(ICard card)
-        {
-            var animalCard = (AnimalCard)card;
-            return _animal == animalCard._animal;
-        }
-
         public override string ToString()
         {
-            return _animal.ToString();
+            return FaceValue;
         }
     }
 }

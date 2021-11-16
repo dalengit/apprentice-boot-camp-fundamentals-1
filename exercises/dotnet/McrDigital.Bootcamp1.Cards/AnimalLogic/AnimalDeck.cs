@@ -19,16 +19,16 @@ namespace McrDigital.Bootcamp1.Cards
             }
         }
 
-        public ICard Deal()
+        public Card Deal()
         {
             var card = _cards[0];
             _cards.RemoveAt(0);
             return card;
         }
 
-        public List<ICard> GetCards()
+        public List<Card> GetCards()
         {
-            var cards = new List<ICard>();
+            var cards = new List<Card>();
             foreach (Animal animal in Enum.GetValues(typeof(Animal)))
             {
                 cards.Add(new AnimalCard(animal));
