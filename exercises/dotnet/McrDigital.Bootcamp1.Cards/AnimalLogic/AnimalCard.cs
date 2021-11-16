@@ -1,6 +1,6 @@
 namespace McrDigital.Bootcamp1.Cards
 {
-    public class AnimalCard
+    public class AnimalCard : ICard
     {
         private readonly Animal _animal;
 
@@ -14,9 +14,10 @@ namespace McrDigital.Bootcamp1.Cards
             get => _animal;
         }
 
-        public bool Snap(AnimalCard other)
+        public bool Snap(ICard card)
         {
-            return _animal == other._animal;
+            var animalCard = (AnimalCard)card;
+            return _animal == animalCard._animal;
         }
 
         public override string ToString()

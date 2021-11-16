@@ -3,13 +3,17 @@ using System.Collections.Generic;
 
 namespace McrDigital.Bootcamp1.Cards
 {
-    public class PlayingCardDeck
+    public class PlayingCardDeck : IDeck
     {
-        public List<PlayingCard> Cards { get; set; }
-
-        public List<PlayingCard> GetCards()
+        public PlayingCardDeck()
         {
-            var listOfCards = new List<PlayingCard>();
+            Cards = GetCards();
+        }
+        public List<ICard> Cards { get; set; }
+
+        public List<ICard> GetCards()
+        {
+            var listOfCards = new List<ICard>();
 
             foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
@@ -27,6 +31,17 @@ namespace McrDigital.Bootcamp1.Cards
             }
 
             return listOfCards;
+        }
+        public ICard Deal()
+        {
+            var card = Cards[0];
+            Cards.RemoveAt(0);
+            return card;
+        }
+
+        public void Shuffle()
+        {
+            Cards.KnuthShuffle();
         }
     }
 }
