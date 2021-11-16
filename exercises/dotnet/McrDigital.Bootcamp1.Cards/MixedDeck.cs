@@ -14,11 +14,9 @@ namespace McrDigital.Bootcamp1.Cards
         public override List<Card> GetCards()
         {
             var mixedCards = new List<Card>();
-            var animalDeck = new AnimalDeck().GetCards();
-            var playingCardDeck = new PlayingCardDeck().GetCards();
 
-            mixedCards.AddRange(animalDeck);
-            mixedCards.AddRange(playingCardDeck);
+            mixedCards.AddRange(new AnimalDeck().Cards);
+            mixedCards.AddRange(new PlayingCardDeck().Cards);
 
             return mixedCards;
         }
