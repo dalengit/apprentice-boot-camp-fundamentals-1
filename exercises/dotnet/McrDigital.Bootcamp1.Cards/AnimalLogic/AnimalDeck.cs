@@ -5,28 +5,13 @@ namespace McrDigital.Bootcamp1.Cards
     using System;
     using System.Collections.Generic;
 
-    public class AnimalDeck : IDeck
+    public class AnimalDeck : Deck
     {
-        private readonly List<AnimalCard> _cards;
-
         public AnimalDeck()
         {
-            _cards = new List<AnimalCard>();
-            foreach (Animal animal in Enum.GetValues(typeof(Animal)))
-            {
-                _cards.Add(new AnimalCard(animal));
-                _cards.Add(new AnimalCard(animal));
-            }
+            Cards = GetCards();
         }
-
-        public Card Deal()
-        {
-            var card = _cards[0];
-            _cards.RemoveAt(0);
-            return card;
-        }
-
-        public List<Card> GetCards()
+        public override List<Card> GetCards()
         {
             var cards = new List<Card>();
             foreach (Animal animal in Enum.GetValues(typeof(Animal)))
@@ -36,11 +21,6 @@ namespace McrDigital.Bootcamp1.Cards
             }
 
             return cards;
-        }
-
-        public void Shuffle()
-        {
-            _cards.KnuthShuffle();
         }
     }
 }

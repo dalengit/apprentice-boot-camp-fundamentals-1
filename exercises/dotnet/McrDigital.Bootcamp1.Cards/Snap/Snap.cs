@@ -12,9 +12,9 @@ namespace McrDigital.Bootcamp1.Cards
 
         private int _player1Score;
         private int _player2Score;
-        private readonly IDeck _deck;
+        private readonly Deck _deck;
 
-        public Snap(IDeck deck)
+        public Snap(Deck deck)
         {
             _deck = deck;
             _deck.Shuffle();
